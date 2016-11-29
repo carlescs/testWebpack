@@ -1,14 +1,15 @@
-export class TestController{
-    number1:number=1;
-    number2:number=1;
+import {NumberService} from './NumberService';
 
-    click(){
-        this.number1++;
-        this.number2*=2;
+export class TestController{
+    constructor(private numberService:NumberService){
+
     }
 
-    click2(){
-        this.number1--;
-        this.number2/=2;
+    increase(){
+        this.numberService.increase();
+    }
+
+    decrease(){
+        this.numberService.decrease();
     }
 }
