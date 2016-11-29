@@ -6,13 +6,19 @@
 </head>
 
 <body>
+    <div class="container">
     <h1>Testing Angular + Webpack</h1>
-    {{vm.numberService.number1}}<br/>
-    {{vm.numberService.number2}}
+    <hr />
+    <div class="row">
+        <div class="col-lg-6">{{vm.numberService.number1}}</div>
+        <div class="col-lg-6">{{vm.numberService.number2}}</div>
+    </div>
+    <hr />
     <p>
         <button class="btn btn-default" ng-click="vm.decrease()">Decrase</button>
         <button class="btn btn-warning" ng-click="vm.increase()">Increase</button>
     </p>
+    </div>
 </body>
 
 </html>
