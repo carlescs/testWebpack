@@ -1,39 +1,45 @@
 var webpack = require('webpack'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
-    path = require("path");
+  HtmlWebpackPlugin = require('html-webpack-plugin'),
+  path = require("path");
 
-module.exports = {  
+module.exports = {
   context: __dirname + '/src',
-    entry: {
-      index: './client/index',
-      vendor:['angular']
-    },
-    output: {
-        path: __dirname + '/dist/',
-        publicPath: '/',
-        filename: '[name].bundle.js'
-    },
+  entry: {
+    index: './client/index',
+    vendor: ['angular','bootstrap']
+  },
+  output: {
+    path: __dirname + '/dist',
+    publicPath: '/',
+    filename: '[name]/[name].bundle.js'
+  },
   // Turn on sourcemaps
   devtool: 'source-map',
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
   },
   resolveLoader: {
-        modulesDirectories: ['node_modules']
-    },
+    modulesDirectories: ['node_modules']
+  },
   // Add minification
   plugins: [
-      new HtmlWebpackPlugin({
-        inject: true,
-        template: './client/index.html',
-        chunks: ['index','vendor']
-      }),
-      new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: './client/index.html',
+      chunks: ['index', 'vendor']
+    }),
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
     new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'ts' }
+      { test: /\.jsx?$/, exclude: /(node_modules|bower_components)/, loader: 'babel' },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+      { test: /\.(woff|woff2)$/, loader: "url?prefix=font/&limit=5000" },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
+      { test: /\.tsx?$/, loader: 'ts' }
     ]
   }
 }
