@@ -1,0 +1,30 @@
+{
+  "name": "testwebpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "start": "http-server ./dist -o"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.24.1",
+    "http-server": "^0.9.0",
+    "typescript": "^2.0.10",
+    "typings": "^2.0.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "angular": "^1.5.9",
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.26.0",
+    "jquery": "^3.1.1",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^1.2.2"
+  }
+}
