@@ -1,11 +1,14 @@
 export class TestController{
-    test:number=1;
+    number1:number=1;
+    number2:number=1;
 
     click(){
-        this.test++;
+        this.number1++;
+        this.number2*=2;
     }
 
     click2(){
-        this.test--;
+        this.number1--;
+        this.number2/=2;
     }
 }
