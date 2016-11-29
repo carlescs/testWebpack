@@ -5,8 +5,9 @@ var webpack = require('webpack'),
 module.exports = {
   context: __dirname + '/src',
   entry: {
-    index: './client/index',
-    vendor: ['angular','bootstrap']
+    index: './client/index/index',
+    second: './client/second/second',
+    vendor: ['angular', 'bootstrap']
   },
   output: {
     path: __dirname + '/dist',
@@ -25,11 +26,22 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: './client/index.html',
+      template: './client/index/index.html',
+      filename: './index/index.html',
       chunks: ['index', 'vendor']
     }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: './client/second/index.html',
+      filename: './second/index.html',
+      chunks: ['second', 'vendor']
+    }),
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
   ],
   module: {
     loaders: [
