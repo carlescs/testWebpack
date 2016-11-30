@@ -7,7 +7,7 @@ module.exports = {
   entry: {
     index: './client/index/index',
     second: './client/second/second',
-    vendor: ['angular', 'bootstrap']
+    vendor: ['angular','angular-ui-router', 'bootstrap','bootstrap/dist/css/bootstrap.css']
   },
   output: {
     path: __dirname + '/dist',
@@ -29,6 +29,11 @@ module.exports = {
       template: './client/index/index.html',
       filename: './index/index.html',
       chunks: ['index', 'vendor']
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: './client/index/test.html',
+      filename: './index/test.html'
     }),
     new HtmlWebpackPlugin({
       inject: true,
