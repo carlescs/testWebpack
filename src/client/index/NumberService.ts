@@ -8,8 +8,9 @@ export class NumberService{
         return this.number1;
     }
 
-    decrease(){
+    async decrease(){
         this.number1--;
         this.number2/=2;
+        return this.number1;
     }
 }

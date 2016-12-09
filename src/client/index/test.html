@@ -7,3 +7,9 @@
     <button class="btn btn-default" ng-click="vm.decrease()">Decrase</button>
     <button class="btn btn-warning" ng-click="vm.increase()">Increase</button>
 </p>
+
+<div class="row">
+    <ul>
+        <li ng-repeat="message in vm.messages track by $index">{{message.message}}</li>
+        </ul>
+    </div>
