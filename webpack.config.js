@@ -7,7 +7,7 @@ module.exports = {
   entry: {
     index: './client/index/index',
     second: './client/second/second',
-    vendor: ['angular','angular-ui-router', 'bootstrap','bootstrap/dist/css/bootstrap.css']
+    vendor: ['babel-polyfill','angular','angular-ui-router', 'bootstrap','bootstrap/dist/css/bootstrap.css']
   },
   output: {
     path: __dirname + '/dist',

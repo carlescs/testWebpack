@@ -5,8 +5,9 @@ export class TestController{
 
     }
 
-    increase(){
-        this.numberService.increase();
+    async increase(){
+        var num=await this.numberService.increase();
+        alert(`awaited ${num}`);
     }
 
     decrease(){
